@@ -113,6 +113,19 @@
         </div>
       </nav>
       <div class="ml-4">
+        <h3>new albums</h3>
+        <button class="btn btn-primary" onclick="loadBooks()">Load books</button>
+      </div>
+      <div class="d-flex newA"></div>
+      <div class="ml-4">
+        <h3>new albums</h3>
+      </div>
+      <div class="d-flex newb"></div>
+      <div class="ml-4">
+        <h3>new albums</h3>
+      </div>
+      <div class="d-flex newc"></div>
+      <div class="ml-4">
         <h3>Good morning</h3>
       </div>
       <div class="d-flex justify-content-between">
@@ -838,5 +851,145 @@
       integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
       crossorigin="anonymous"
     ></script>
+    <script>
+      
+      const loadBooks = () => {
+
+fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem", {
+  headers: {
+    'x-rapidapi-host': 'deezerdevs-deezer.p.rapidapi.com',
+    'x-rapidapi-key': '7e7b4e3ed2msh0d23da65ac467b4p1e7dbbjsn53ad601bb294'
+  }
+})
+
+    // WAITING
+    .then(response => response.json()
+    )
+    .then(body => {
+
+        // DOM MANIPULATION
+        console.log(body)
+        console.log(body.data.length)
+        let obj = body.data
+
+        const row = document.querySelector(".newA")
+
+        for (let i = 0; i < obj.length; i++) {
+            obj[i]
+
+            const col = document.createElement("div")
+            col.className = "col-3"
+
+            col.innerHTML = `
+            
+            <div class="card music-card2">
+                <img src="${obj[i].album.cover_big}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">${obj[i].album.title}</h5>
+                    <p class="card-text">${obj[i].artist.name}€</p>
+                </div>
+            </div>
+            `
+
+            row.appendChild(col)
+        }
+
+
+    })
+    .catch(error => console.error(error))
+
+
+
+    fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=metallica", {
+  headers: {
+    'x-rapidapi-host': 'deezerdevs-deezer.p.rapidapi.com',
+    'x-rapidapi-key': '7e7b4e3ed2msh0d23da65ac467b4p1e7dbbjsn53ad601bb294'
+  }
+})
+
+    // WAITING
+    .then(response => response.json()
+    )
+    .then(body => {
+
+        // DOM MANIPULATION
+        console.log(body)
+        console.log(body.data.length)
+        let obj = body.data
+
+        const row = document.querySelector(".newb")
+
+        for (let i = 0; i < obj.length; i++) {
+            obj[i]
+
+            const col = document.createElement("div")
+            col.className = "col-3"
+
+            col.innerHTML = `
+            
+            <div class="card music-card2">
+                <img src="${obj[i].album.cover_big}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">${obj[i].album.title}</h5>
+                    <p class="card-text">${obj[i].artist.name}€</p>
+                </div>
+            </div>
+            `
+
+            row.appendChild(col)
+        }
+
+
+    })
+    .catch(error => console.error(error))
+
+
+
+    fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=behemoth", {
+  headers: {
+    'x-rapidapi-host': 'deezerdevs-deezer.p.rapidapi.com',
+    'x-rapidapi-key': '7e7b4e3ed2msh0d23da65ac467b4p1e7dbbjsn53ad601bb294'
+  }
+})
+
+    // WAITING
+    .then(response => response.json()
+    )
+    .then(body => {
+
+        // DOM MANIPULATION
+        console.log(body)
+        console.log(body.data.length)
+        let obj = body.data
+
+        const row = document.querySelector(".newc")
+
+        for (let i = 0; i < obj.length; i++) {
+            obj[i]
+
+            const col = document.createElement("div")
+            col.className = "col-3"
+
+            col.innerHTML = `
+            
+            <div class="card music-card2">
+                <img src="${obj[i].album.cover_big}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">${obj[i].album.title}</h5>
+                    <p class="card-text">${obj[i].artist.name}€</p>
+                </div>
+            </div>
+            `
+
+            row.appendChild(col)
+        }
+
+
+    })
+    .catch(error => console.error(error))
+
+}
+
+    </script>
   </body>
 </html>

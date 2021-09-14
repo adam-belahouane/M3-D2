@@ -425,3 +425,6 @@ li {
     background-color: transparent;
     text-decoration: none;
   }
+  .newA, .newb, .newc{
+    overflow-x: scroll;
+  }
